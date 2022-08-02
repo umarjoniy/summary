@@ -1,0 +1,454 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="hero-wrap js-fullheight">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight justify-content-center align-items-center">
+            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-center">
+                <div class="text text-center">
+                    <span class="subheading">Hey! I am</span>
+                    <h1>{{person.name}}</h1>
+                    <h2>I'm a
+                        <span class="txt-rotate" data-period="2000"
+                              data-rotate='[ "Web Designer.", "Developer.", "Photographer.", "Marketer.", "Blogger" ]'></span>
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="mouse">
+        <a href="#" class="mouse-icon">
+            <div class="mouse-wheel"><span class="ion-ios-arrow-round-down"></span></div>
+        </a>
+    </div>
+</section>
+<section class="ftco-about img ftco-section ftco-no-pt ftco-no-pb" id="about-section">
+    <div class="container">
+        <div class="row d-flex no-gutters">
+            <div class="col-md-6 col-lg-6 d-flex">
+                <div class="img-about img d-flex align-items-stretch">
+                    <div class="overlay"></div>
+                    <div class="img d-flex align-self-stretch align-items-center"
+                         style="background-image:url({{person.image.url}})">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 pl-md-5 py-5">
+                <div class="row justify-content-start pb-3">
+                    <div class="col-md-12 heading-section ftco-animate">
+                        <h1 class="big">About</h1>
+                        <h2 class="mb-4">About Me</h2>
+                        <p>{{person.description}}</p>
+                        <ul class="about-info mt-4 px-md-0 px-2">
+                            <li class="d-flex"><span>Name:</span> <span>{{person.name}}</span></li>
+                            <li class="d-flex"><span>Date of birth:</span> <span>{{person.birthday}}</span></li>
+                            <li class="d-flex"><span>Address:</span> <span>{{person.address}}</span></li>
+                            <li class="d-flex"><span>Zip code:</span> <span>{{person.zip_code}}</span></li>
+                            <li class="d-flex"><span>Email:</span> <span>{{person.email}}</span>
+                            </li>
+                            <li class="d-flex"><span>Phone: </span> <span>{{person.phone}}</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="counter-wrap ftco-animate d-flex mt-md-3">
+                    <div class="text">
+                        <p class="mb-4">
+                            <span class="number" data-number="{{person.completed}}">0</span>
+                            <span>Project complete</span>
+                        </p>
+                        <p><a href="#" class="btn btn-primary py-3 px-3">Download CV</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section ftco-partner">
+    <div class="container">
+        <div class="row">
+
+            {% for i in partners %}
+
+            <div class="col-sm ftco-animate">
+                <a href="#" class="partner"><img src="{{i.image.url}}"
+                                                 class="img-fluid" alt="Colorlib Template"></a>
+            </div>
+
+            {% endfor %}
+
+
+        </div>
+    </div>
+</section>
+<section class="ftco-section ftco-no-pb goto-here" id="resume-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <nav id="navi">
+                    <ul>
+                        <li><a href="#page-1">Education</a></li>
+                        <li><a href="#page-2">Experience</a></li>
+                        <li><a href="#page-3">Skills</a></li>
+                        <li><a href="#page-4">Awards</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-md-9">
+                <div id="page-1" class="page one">
+                    <h2 class="heading">Education</h2>
+
+                    {% for i in educations %}
+
+                    <div class="resume-wrap d-flex ftco-animate">
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <span class="flaticon-ideas"></span>
+                        </div>
+                        <div class="text pl-3">
+                            <span class="date">{{i.period}}</span>
+                            <h2>{{i.title}}</h2>
+                            <span class="position">{{i.name}}</span>
+                            <p>{{i.content}}</p>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+                <div id="page-2" class="page two">
+                    <h2 class="heading">Experience</h2>
+
+                    {% for i in experience %}
+
+                    <div class="resume-wrap d-flex ftco-animate">
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <span class="flaticon-ideas"></span>
+                        </div>
+                        <div class="text pl-3">
+                            <span class="date">{{i.period}}</span>
+                            <h2>{{i.title}}</h2>
+                            <span class="position">{{i.name}}</span>
+                            <p>{{i.content}}</p>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+                <div id="page-3" class="page three">
+                    <h2 class="heading">Skills</h2>
+                    <div class="row progress-circle mb-5">
+
+                        {% for i in skills_main %}
+
+                        <div class="col-lg-4 mb-4">
+                            <div class="bg-white rounded-lg shadow p-4">
+                                <h2 class="h5 font-weight-bold text-center mb-4">{{i.name}}</h2>
+
+                                <div class="progress mx-auto" data-value='{{i.num}}'>
+<span class="progress-left">
+<span class="progress-bar border-primary"></span>
+</span>
+                                    <span class="progress-right">
+<span class="progress-bar border-primary"></span>
+</span>
+                                    <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+                                        <div class="h2 font-weight-bold">{{i.num}}<sup class="small">%</sup></div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row text-center mt-4">
+                                    <div class="col-6 border-right">
+                                        <div class="h4 font-weight-bold mb-0">{{i.lwnum}}%</div>
+                                        <span class="small text-gray">Last week</span>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="h4 font-weight-bold mb-0">{{i.lmnum}}%</div>
+                                        <span class="small text-gray">Last month</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        {% endfor %}
+
+                    </div>
+                    <div class="row">
+
+                        {% for i in skills_minor %}
+
+                        <div class="col-md-6 animate-box">
+                            <div class="progress-wrap ftco-animate">
+                                <h3>{{i.name}}</h3>
+                                <div class="progress">
+                                    <div class="progress-bar color-1" role="progressbar" aria-valuenow="{{i.num}}"
+                                         aria-valuemin="0" aria-valuemax="100" style="width:{{i.num}}%">
+                                        <span>{{i.num}}%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {% endfor %}
+
+                    </div>
+                </div>
+                <div id="page-4" class="page four">
+                    <h2 class="heading">Awards</h2>
+
+                    {% for i in awards %}
+
+                    <div class="resume-wrap d-flex ftco-animate">
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <span class="flaticon-ideas"></span>
+                        </div>
+                        <div class="text pl-3">
+                            <span class="date">{{i.period}}</span>
+                            <h2>{{i.title}}</h2>
+                            <span class="position">{{i.name}}</span>
+                            <p>{{i.content}}</p>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section" id="services-section">
+    <div class="container-fluid px-md-5">
+        <div class="row justify-content-center py-5 mt-5">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <h1 class="big big-2">Services</h1>
+                <h2 class="mb-4">Services</h2>
+                <p>{{person.description}}</p>
+            </div>
+        </div>
+        <div class="row">
+
+            {% for i in services %}
+
+            <div class="col-md-4 text-center d-flex ftco-animate">
+                <a href="#" class="services-1 shadow">
+<span class="icon">
+<i class="flaticon-{{i.text_ico}}"></i>
+</span>
+                    <div class="desc">
+                        <h3 class="mb-5">{{i.name}}</h3>
+                        <p>{{i.context}}</p>
+                    </div>
+                </a>
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+<section class="ftco-section ftco-project" id="projects-section">
+    <div class="container-fluid px-md-0">
+        <div class="row no-gutters justify-content-center pb-5">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <h1 class="big big-2">Projects</h1>
+                <h2 class="mb-4">Our Projects</h2>
+                <p>{{person.description}}</p>
+            </div>
+        </div>
+        <div class="row no-gutters">
+
+            {% for i in projects %}
+
+            <div class="col-md-4">
+                <div class="project img ftco-animate d-flex justify-content-center align-items-center"
+                     style="background-image:url({{i.image.url}})">
+                    <div class="overlay"></div>
+                    <div class="text text-center p-4">
+                        <h3><a href="#">{{i.name}}</a></h3>
+                        <span>{{i.field}}</span>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+<section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
+    <div class="container-fluid px-md-5">
+        <div class="row d-md-flex align-items-center">
+            <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18 shadow">
+                    <div class="text">
+                        <strong class="number" data-number="{{another.awards}}">0</strong>
+                        <span>Awards</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18 shadow">
+                    <div class="text">
+                        <strong class="number" data-number="{{another.projects}}">0</strong>
+                        <span>Complete Projects</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18 shadow">
+                    <div class="text">
+                        <strong class="number" data-number="{{another.customers}}">0</strong>
+                        <span>Happy Customers</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18 shadow">
+                    <div class="text">
+                        <strong class="number" data-number="{{another.coffee}}">0</strong>
+                        <span>Cups of coffee</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section" id="blog-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-5">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <h1 class="big big-2">Blog</h1>
+                <h2 class="mb-4">Our Blog</h2>
+                <p>{{person.description}}</p>
+            </div>
+        </div>
+        <div class="row d-flex">
+
+            {% for i in posts %}
+
+            <div class="col-md-4 d-flex ftco-animate">
+                <div class="blog-entry justify-content-end">
+                    <a href="single/{{i.slug}}/" class="block-20"
+                       style="background-image:url({{i.image.url}})">
+                    </a>
+                    <div class="text mt-3 float-right d-block">
+                        <h3 class="heading"><a href="single/{{i.slug}}/">{{i.title}}</a>
+                        </h3>
+                        <div class="d-flex align-items-center mb-3 meta">
+                            <p class="mb-0">
+                                <span class="mr-2">{{i.created_at}}</span>
+                                <a href="#" class="mr-2">{{i.author}}</a>
+                                <a href="#" class="meta-chat"><span class="icon-chat"></span> {{i.com}}</a>
+                            </p>
+                        </div>
+                        <p>{{i.subtitle}}</p>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+<section class="ftco-section ftco-hireme img"
+         style="background-image:url({% static 'images/xbg_1.jpg.pagespeed.ic.snCMAsuwMa.jpg' %})">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-7 ftco-animate text-center">
+                <h2>I'm <span>Available</span> for freelancing</h2>
+                <p>{{person.description}}</p>
+                <p class="mb-0"><a href="#" class="btn btn-primary py-3 px-5">Hire me</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <h1 class="big big-2">Contact</h1>
+                <h2 class="mb-4">Contact Me</h2>
+                <p>{{person.description}}</p>
+            </div>
+        </div>
+        <div class="row d-flex contact-info mb-5">
+            <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+                <div class="align-self-stretch box text-center p-4 shadow">
+                    <div class="icon d-flex align-items-center justify-content-center">
+                        <span class="icon-map-signs"></span>
+                    </div>
+                    <div>
+                        <h3 class="mb-4">Address</h3>
+                        <p>{{person.address}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+                <div class="align-self-stretch box text-center p-4 shadow">
+                    <div class="icon d-flex align-items-center justify-content-center">
+                        <span class="icon-phone2"></span>
+                    </div>
+                    <div>
+                        <h3 class="mb-4">Contact Number</h3>
+                        <p><a href="tel://{{person.phone}}">{{person.phone}}</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+                <div class="align-self-stretch box text-center p-4 shadow">
+                    <div class="icon d-flex align-items-center justify-content-center">
+                        <span class="icon-paper-plane"></span>
+                    </div>
+                    <div>
+                        <h3 class="mb-4">Email Address</h3>
+                        <a href="mailto:{{person.email}}">{{person.email}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+                <div class="align-self-stretch box text-center p-4 shadow">
+                    <div class="icon d-flex align-items-center justify-content-center">
+                        <span class="icon-globe"></span>
+                    </div>
+                    <div>
+                        <h3 class="mb-4">Website</h3>
+                        <p><a href="#">{{person.website}}</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row no-gutters block-9">
+            <div class="col-md-6 order-md-last d-flex">
+                <form method="post" class="bg-light p-4 p-md-5 contact-form">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {{form.name}}
+                    </div>
+                    <div class="form-group">
+                        {{form.email}}
+                    </div>
+                    <div class="form-group">
+                        {{form.subject}}
+                    </div>
+                    <div class="form-group">
+                        {{form.message}}
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6 d-flex">
+                <div class="img" style="background-image:url({{person.image.url}})"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
